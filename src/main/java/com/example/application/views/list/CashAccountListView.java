@@ -28,8 +28,6 @@ public class CashAccountListView extends VerticalLayout {
         addClassName("overview");
         setSizeFull();
 
-        add("It Works! :D");
-        add("Is logged in: " + userSession.isLoggedIn());
         add(userSession.getUser().getFirstName());
         add(cashAccountsGrid);
 

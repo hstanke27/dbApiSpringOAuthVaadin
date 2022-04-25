@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/ -->
     <groupId>com.example.application</groupId>
-    <artifactId>dbApiSpringOAuthVaadin</artifactId>
-    <name>dbApi Spring OAuth vaadin Tutorial</name>
+    <artifactId>flowcrmtutorial</artifactId>
+    <name>Flow CRM Tutorial</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
