@@ -14,12 +14,12 @@ spring:
       client:
         registration:
           github:
-            client-id: bc1be8d7831e71f84180
-            client-secret: 4442fa67f26196ab535b77a54ec0a46f63c617ec
+            client-id:
+            client-secret:
           dbApi:
-            client-name: HolgersTestApp
-            client-id: 8b2030b0-7d64-4d89-bee8-c59fc071e778
-            client-secret: AJ9zR_FbexR48-76yiYiiTjvGVx7gW0jDfBEw82a525BmGtN8Yg58kkndtZdiTmmkKeT0Gj4Ct4TXZPrGyZtiIg
+            client-name:
+            client-id:
+            client-secret:
             client-authentication-method: basic
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8080/login/oauth2/code/dbApi
