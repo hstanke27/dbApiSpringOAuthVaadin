@@ -16,7 +16,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  */
 @SpringBootApplication
-@Theme(value = "flowcrmtutorial")
+@Theme(value = "dbApiSample")
 @PWA(name = "Flow CRM Tutorial", shortName = "Flow CRM Tutorial", offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
