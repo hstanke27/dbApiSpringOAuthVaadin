@@ -40,4 +40,6 @@ public class CashAccounts {
     public void setAccounts(List<CashAccount> accounts) {
         this.accounts = accounts;
     }
+
+
 }

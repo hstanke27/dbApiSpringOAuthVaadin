@@ -26,29 +26,37 @@ public class HomeView extends VerticalLayout {
         this.clientService = clientService;
         setSpacing(false);
         setPadding(false);
-        add(navbar());
         add(body());
+        add(navbar());
     }
 
     private Component navbar() {
         HorizontalLayout root = new HorizontalLayout();
         root.setWidthFull();
         root.setAlignItems(Alignment.CENTER);
-        Span name = new Span("Unity");
-        name.getStyle().set("padding-left", "1rem");
-        root.add(name);
+
+        root.setFlexGrow(1);
+        root.addClassNames("contrast-5pct");
+
+        return root;
+    }
+
+    private Component body() {
+        VerticalLayout root = new VerticalLayout();
+
+        root.add(new H1("Sample application"));
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (!(authentication instanceof OAuth2AuthenticationToken)) {
             Button loginButton = new Button();
             loginButton.setText("Login");
-            loginButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-            loginButton.getStyle().set("padding-right", "1rem");
+            loginButton.getStyle().set("text-align", "center");
             loginButton.addClassName("toolbar");
-            Anchor anchor = new Anchor("/login", loginButton);
-            anchor.getElement().setAttribute("router-ignore", true);
-            root.add(anchor);
+
+            Anchor anchorLogin = new Anchor("/login", loginButton);
+            anchorLogin.getElement().setAttribute("router-ignore", true);
+            root.add(anchorLogin);
         } else {
             Notification.show("Logged In");
             OAuth2AuthenticationToken token = (OAuth2AuthenticationToken) authentication;
@@ -56,22 +64,6 @@ public class HomeView extends VerticalLayout {
             String accessToken = client.getAccessToken().getTokenValue();
             Notification.show("Logged in with token: " + accessToken);
         }
-
-        root.setFlexGrow(1, name);
-        root.addClassNames("contrast-5pct");
-
-        return root;
-    }
-
-
-    private Component body() {
-        VerticalLayout root = new VerticalLayout();
-        Image img = new Image("images/empty-plant.png", "placeholder plant");
-        img.setWidth("200px");
-        root.add(img);
-
-        root.add(new H2("This place intentionally left empty"));
-        root.add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
 
         root.setSizeFull();
         root.setJustifyContentMode(JustifyContentMode.CENTER);

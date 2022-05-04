@@ -28,11 +28,11 @@ public class DashboardView extends VerticalLayout {
     public DashboardView(UserSession userSession, CashAccountService cashAccountService) {
         this.userSession = userSession;
         this.cashAccountService = cashAccountService;
+
         addClassName("dashboard-view");
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         add(getCashAccountStats(), getCashAccountsChart());
     }
-
 
     private Component getCashAccountStats() {
         String accessToken = userSession.getAccessToken();

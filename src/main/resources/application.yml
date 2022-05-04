@@ -22,8 +22,8 @@ spring:
             client-secret:
             client-authentication-method: basic
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/dbApi
-            scope: offline_access,openid,read_accounts,read_transactions
+            redirect-uri: https://my-lb-project-99810-dot-my-lb-project-99810.ey.r.appspot.com/login/oauth2/code/dbApi
+            scope: offline_access,openid,read_accounts,read_transactions,read_addresses
         provider:
           dbApi:
             authorization-uri: https://simulator-api.db.com/gw/oidc/authorize
@@ -40,8 +40,8 @@ vaadin:
   # For more information https://vaadin.com/docs/flow/spring/tutorial-spring-configuration.html#special-configuration-parameters
   .whitelisted-packages: com.vaadin,org.vaadin,dev.hilla,com.example.application
 
-
 dbApi:
   url:
     cashAccounts: https://simulator-api.db.com/gw/dbapi/banking/cashAccounts/v2
     cashAccountTransactions: https://simulator-api.db.com/gw/dbapi/banking/transactions/v2/
+    addresses: https://simulator-api.db.com/gw/dbapi/referenceData/addresses/v2

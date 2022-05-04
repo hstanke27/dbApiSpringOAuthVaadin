@@ -1,31 +1,26 @@
 package com.example.application.data.service;
 
 import com.example.application.AppProperties;
-import com.example.application.data.model.CashAccountTransaction;
-import com.example.application.data.model.CashAccountTransactions;
+import com.example.application.data.model.Address;
+import com.example.application.data.model.Addresses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
-public class CashAccountTransactionService {
+public class AddressesService {
 
     @Autowired
     AppProperties appProperties;
 
-    public List<CashAccountTransaction> getCashAccountTransactions(String accessToken, String iban) {
+    public List<Address>
+    getAddresses(String accessToken) {
         RestTemplate restTemplate = new RestTemplate();
-
-        String resourceUrl = appProperties.getDbApiCashAccountTransactionsUrl() + "?iban=" + iban + "&limit=200";
-
-        Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("iban", iban);
+        String resourceUrl = appProperties.getDbApiAddressUrl();
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + accessToken);
@@ -33,16 +28,15 @@ public class CashAccountTransactionService {
 
         HttpEntity request = new HttpEntity(headers);
 
-        ResponseEntity<CashAccountTransactions> response = restTemplate.exchange(
+        ResponseEntity<Addresses> response = restTemplate.exchange(
                 resourceUrl,
                 HttpMethod.GET,
                 request,
-                CashAccountTransactions.class
+                Addresses.class
         );
 
-        CashAccountTransactions cashAccountTransactions = response.getBody();
-
-        return cashAccountTransactions.getTransactions();
+        Addresses addresses = response.getBody();
+        return addresses.getAddresses();
     }
 
 }

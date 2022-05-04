@@ -14,6 +14,9 @@ public class AppProperties {
     @Value("${dbApi.url.cashAccountTransactions}")
     private String dbApiCashAccountTransactionsUrl;
 
+    @Value("${dbApi.url.addresses}")
+    private String dbApiAddressUrl;
+
     public String getDbApiCashAccountsUrl() {
         return dbApiCashAccountsUrl;
     }
@@ -28,5 +31,13 @@ public class AppProperties {
 
     public void setDbApiCashAccountTransactionsUrl(String dbApiCashAccountTransactionsUrl) {
         this.dbApiCashAccountTransactionsUrl = dbApiCashAccountTransactionsUrl;
+    }
+
+    public String getDbApiAddressUrl() {
+        return dbApiAddressUrl;
+    }
+
+    public void setDbApiAddressUrl(String dbApiAddressUrl) {
+        this.dbApiAddressUrl = dbApiAddressUrl;
     }
 }

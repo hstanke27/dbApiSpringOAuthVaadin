@@ -142,6 +142,8 @@
     "workbox-webpack-plugin": "6.5.0"
   },
   "overrides": {
+    "chokidar": "$chokidar",
+    "@vaadin/bundles": "$@vaadin/bundles",
     "@vaadin/accordion": "$@vaadin/accordion",
     "@vaadin/app-layout": "$@vaadin/app-layout",
     "@vaadin/avatar": "$@vaadin/avatar",
@@ -241,6 +243,7 @@
     "@vaadin/cookie-consent": "$@vaadin/cookie-consent",
     "@vaadin/crud": "$@vaadin/crud",
     "@vaadin/grid-pro": "$@vaadin/grid-pro",
+    "@vaadin/map": "$@vaadin/map",
     "@vaadin/rich-text-editor": "$@vaadin/rich-text-editor",
     "@vaadin/vaadin-board": "$@vaadin/vaadin-board",
     "@vaadin/vaadin-charts": "$@vaadin/vaadin-charts",
@@ -249,14 +252,11 @@
     "@vaadin/vaadin-crud": "$@vaadin/vaadin-crud",
     "@vaadin/vaadin-grid-pro": "$@vaadin/vaadin-grid-pro",
     "@vaadin/vaadin-rich-text-editor": "$@vaadin/vaadin-rich-text-editor",
-    "@vaadin/bundles": "$@vaadin/bundles",
-    "@vaadin/map": "$@vaadin/map",
-    "@polymer/polymer": "$@polymer/polymer",
     "@vaadin/common-frontend": "$@vaadin/common-frontend",
     "construct-style-sheets-polyfill": "$construct-style-sheets-polyfill",
-    "date-fns": "$date-fns",
     "lit": "$lit",
-    "chokidar": "$chokidar",
+    "@polymer/polymer": "$@polymer/polymer",
+    "date-fns": "$date-fns",
     "line-awesome": "$line-awesome"
   },
   "vaadin": {
