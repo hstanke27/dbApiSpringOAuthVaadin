@@ -1,19 +1,12 @@
 package com.example.application.views.list;
 
 import com.example.application.data.model.Address;
-import com.example.application.data.model.AddressType;
-import com.example.application.data.model.CashAccount;
-import com.example.application.data.service.AddressesService;
-import com.example.application.data.service.CashAccountService;
+import com.example.application.service.AddressesService;
+import com.example.application.service.CashAccountService;
 import com.example.application.security.oauth.UserSession;
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteParameters;
 
 import javax.annotation.security.PermitAll;
 import java.util.List;

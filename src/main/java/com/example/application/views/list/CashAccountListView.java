@@ -1,7 +1,7 @@
 package com.example.application.views.list;
 
 import com.example.application.data.model.CashAccount;
-import com.example.application.data.service.CashAccountService;
+import com.example.application.service.CashAccountService;
 import com.example.application.security.oauth.UserSession;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -30,8 +30,6 @@ public class CashAccountListView extends VerticalLayout {
 
         String accessToken = userSession.getAccessToken();
         configureGrid(cashAccountService.getCashAccountList(accessToken));
-
-
     }
 
     private void configureGrid(List<CashAccount> cashAccounts) {
@@ -42,7 +40,7 @@ public class CashAccountListView extends VerticalLayout {
         cashAccountsGrid.setItems(cashAccounts);
 
         cashAccountsGrid.addColumn(new ComponentRenderer<>(item -> {
-            Button getTransactionsButton = new Button("Get Transactions");
+            Button getTransactionsButton = new Button("Transactions");
                 getTransactionsButton.addClickListener(click -> UI.getCurrent().navigate(CashAccountTransactionsListView.class, new RouteParameters("iban", item.getIban())));
                 HorizontalLayout editLayout = new HorizontalLayout(getTransactionsButton);
                 editLayout.setWidth("100%");

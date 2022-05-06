@@ -1,8 +1,8 @@
 package com.example.application.views.list;
 
 import com.example.application.data.model.CashAccountTransaction;
-import com.example.application.data.service.CashAccountTransactionService;
 import com.example.application.security.oauth.UserSession;
+import com.example.application.service.CashAccountTransactionService;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;

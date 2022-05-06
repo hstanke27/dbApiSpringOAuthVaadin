@@ -2,7 +2,7 @@ package com.example.application.views.list;
 
 import com.example.application.data.model.CashAccount;
 import com.example.application.data.model.CashAccounts;
-import com.example.application.data.service.CashAccountService;
+import com.example.application.service.CashAccountService;
 import com.example.application.security.oauth.UserSession;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.charts.Chart;

@@ -14,12 +14,10 @@ spring:
       client:
         registration:
           github:
-            client-id:
-            client-secret:
+            client-id: bc1be8d7831e71f84180
           dbApi:
-            client-name:
-            client-id:
-            client-secret:
+            client-name: HolgersTestApp
+            client-id: 8b2030b0-7d64-4d89-bee8-c59fc071e778
             client-authentication-method: basic
             authorization-grant-type: authorization_code
             redirect-uri: https://my-lb-project-99810-dot-my-lb-project-99810.ey.r.appspot.com/login/oauth2/code/dbApi
@@ -33,6 +31,16 @@ spring:
             issuer-uri: https://simulator-api.db.com/gw/oidc/
   mustache:
     check-template-location: false
+  cloud:
+      gcp:
+        kms:
+          project-id: my-lb-project-99810
+          location-id: europe-west3
+          key-ring-id: my-lb-project-99810-keyring
+          key-id: my-lb-project-99810-keyname
+        storage:
+          bucket-name: client-credentials-bucket
+
 # Launch the default browser when starting the application in development mode
 vaadin:
   launch-browser: true

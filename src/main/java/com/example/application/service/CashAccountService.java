@@ -1,4 +1,4 @@
-package com.example.application.data.service;
+package com.example.application.service;
 
 import com.example.application.AppProperties;
 import com.example.application.data.model.CashAccount;
