@@ -41,7 +41,6 @@ public class CashAccountTransactionService {
         );
 
         CashAccountTransactions cashAccountTransactions = response.getBody();
-
         return cashAccountTransactions.getTransactions();
     }
 

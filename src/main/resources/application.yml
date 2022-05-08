@@ -21,6 +21,7 @@ spring:
             client-authentication-method: basic
             authorization-grant-type: authorization_code
             redirect-uri: https://my-lb-project-99810-dot-my-lb-project-99810.ey.r.appspot.com/login/oauth2/code/dbApi
+            #redirect-uri: http://localhost:8080/login/oauth2/code/dbApi
             scope: offline_access,openid,read_accounts,read_transactions,read_addresses
         provider:
           dbApi:
