@@ -3,6 +3,7 @@ package com.example.application.views.list;
 import com.example.application.data.model.CashAccount;
 import com.example.application.service.CashAccountService;
 import com.example.application.security.oauth.UserSession;
+import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;

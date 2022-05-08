@@ -1,4 +1,4 @@
-package com.example.application.views.list;
+package com.example.application.views;
 
 import com.example.application.data.model.CashAccount;
 import com.example.application.data.model.CashAccountTransaction;

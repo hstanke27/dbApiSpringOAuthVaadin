@@ -17,7 +17,7 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
         http.oauth2Login(oauth -> {
-                    oauth.defaultSuccessUrl("/cashAccounts");
+                    oauth.defaultSuccessUrl("/start");
                 })
                 .logout(logout -> {
                     logout.logoutSuccessUrl("/");

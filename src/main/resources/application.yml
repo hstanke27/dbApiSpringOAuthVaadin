@@ -15,12 +15,13 @@ spring:
         registration:
           github:
             client-id: bc1be8d7831e71f84180
+            redirect-uri: https://dbapi-dot-simulation-sample.ey.r.appspot.com/login/oauth2/code/github
           dbApi:
             client-name: HolgersTestApp
             client-id: 8b2030b0-7d64-4d89-bee8-c59fc071e778
             client-authentication-method: basic
             authorization-grant-type: authorization_code
-            redirect-uri: https://my-lb-project-99810-dot-my-lb-project-99810.ey.r.appspot.com/login/oauth2/code/dbApi
+            redirect-uri: https://dbapi-dot-simulation-sample.ey.r.appspot.com/login/oauth2/code/dbApi
             #redirect-uri: http://localhost:8080/login/oauth2/code/dbApi
             scope: offline_access,openid,read_accounts,read_transactions,read_addresses
         provider:
@@ -35,10 +36,10 @@ spring:
   cloud:
       gcp:
         kms:
-          project-id: my-lb-project-99810
+          project-id: simulation-sample
           location-id: europe-west3
-          key-ring-id: my-lb-project-99810-keyring
-          key-id: my-lb-project-99810-keyname
+          key-ring-id: simulation-sample-keyring
+          key-id: simulation-sample-keyname
         storage:
           bucket-name: client-credentials-bucket
 

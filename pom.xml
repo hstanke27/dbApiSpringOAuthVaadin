@@ -225,7 +225,7 @@
                 <version>2.4.0</version>
                 <configuration>
                     <version>1</version>
-                    <projectId>my-lb-project-99810</projectId>
+                    <projectId>simulation-sample</projectId>
                 </configuration>
             </plugin>
         </plugins>

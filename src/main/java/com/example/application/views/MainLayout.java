@@ -1,6 +1,7 @@
-package com.example.application.views.list;
+package com.example.application.views;
 
-import com.vaadin.flow.component.UI;
+import com.example.application.views.list.AddressListView;
+import com.example.application.views.list.CashAccountListView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -20,7 +21,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void createHaeder() {
-        H1 logo = new H1("Sample Application");
+        H1 logo = new H1("Sample GAE application");
         logo.addClassNames("text-l", "m-m");
 
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
@@ -34,7 +35,6 @@ public class MainLayout extends AppLayout {
         logoutButton.setWidth("100px");
         logoutButton.addClickListener(event -> {
             SecurityContextHolder.clearContext();
-
             getUI().get().getSession().close();
             getUI().get().getCurrent().getPage().setLocation("/");
         });
@@ -58,6 +58,5 @@ public class MainLayout extends AppLayout {
             addressesRoutLink
         ));
     }
-
 
 }

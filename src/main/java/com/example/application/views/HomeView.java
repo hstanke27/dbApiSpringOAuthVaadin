@@ -1,9 +1,9 @@
-package com.example.application.views.list;
+package com.example.application.views;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -26,8 +26,8 @@ public class HomeView extends VerticalLayout {
         this.clientService = clientService;
         setSpacing(false);
         setPadding(false);
-        add(body());
         add(navbar());
+        add(body());
     }
 
     private Component navbar() {
@@ -44,7 +44,7 @@ public class HomeView extends VerticalLayout {
     private Component body() {
         VerticalLayout root = new VerticalLayout();
 
-        root.add(new H1("Sample application"));
+        root.add(new H1("Sample GAE application"));
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
