@@ -1,3 +1,4 @@
+#Attention - don't rename this file. Otherwise, GAE can't be deployed correctly!
 runtime: java11
 env: standard
 instance_class: F2
