@@ -44,7 +44,7 @@ public class HomeView extends VerticalLayout {
     private Component body() {
         VerticalLayout root = new VerticalLayout();
 
-        root.add(new H1("Sample GAE application"));
+        root.add(new H1("Sample Google App Engine (GAE) application"));
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

@@ -13,7 +13,7 @@ import com.vaadin.flow.router.Route;
 import javax.annotation.security.PermitAll;
 import java.util.List;
 
-@Route("test/:iban?")
+@Route("transactions/:iban?")
 @PageTitle("Cash Account Transactions")
 @PermitAll
 public class CashAccountTransactionsListView extends VerticalLayout implements BeforeEnterObserver {

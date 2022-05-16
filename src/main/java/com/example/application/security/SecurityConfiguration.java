@@ -14,16 +14,18 @@ import org.springframework.web.client.RestTemplate;
 public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
-        http.oauth2Login(oauth -> {
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
+
+        httpSecurity.oauth2Login(oauth -> {
                     oauth.defaultSuccessUrl("/start");
                 })
                 .logout(logout -> {
                     logout.logoutSuccessUrl("/");
                 });
 
-        super.configure(http);
+        super.configure(httpSecurity);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
     }
 
     /**
-     * Attention - Must be overriden but can be empty. Otherwise in Google Cloud App Engine, Stacktrace error will happen.
+     * Attention - Must be overridden but can be empty. Otherwise, in Google Cloud App Engine, Stacktrace error will happen.
      * See http://blog.iampfac.com/blog/2015/02/12/stackoverflow-error-with-spring-security-authentication/
      * On localhost this error doesn't happen.
      * @param auth

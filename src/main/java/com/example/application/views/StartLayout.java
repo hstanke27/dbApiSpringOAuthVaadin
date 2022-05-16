@@ -14,7 +14,7 @@ public class StartLayout extends AppLayout {
     }
 
     private void createHaeder() {
-        H1 logo = new H1("Sample GAE application");
+        H1 logo = new H1("Sample Google App Engine (GAE) application");
         logo.addClassNames("text-l", "m-m");
 
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
