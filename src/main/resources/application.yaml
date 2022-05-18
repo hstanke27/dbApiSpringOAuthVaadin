@@ -21,7 +21,7 @@ spring:
             client-id: bc1be8d7831e71f84180
             # Attention. A GitHub app can just have one redirect-uri only configured!
             #redirect-uri: https://dbapi-dot-simulation-sample.ey.r.appspot.com/login/oauth2/code/github
-            redirect-uri: https://www.samplegae.com/login/oauth2/code/github
+            redirect-uri: https://samplegae.com/login/oauth2/code/github
             #redirect-uri: http://localhost:8080/login/oauth2/code/github
           dbApi:
             client-name: HolgersTestApp
@@ -29,7 +29,7 @@ spring:
             client-authentication-method: basic
             authorization-grant-type: authorization_code
             #redirect-uri: https://dbapi-dot-simulation-sample.ey.r.appspot.com/login/oauth2/code/github
-            redirect-uri: https://www.samplegae.com/login/oauth2/code/dbApi
+            redirect-uri: https://samplegae.com/login/oauth2/code/dbApi
             #redirect-uri: http://localhost:8080/login/oauth2/code/dbApi
             scope: offline_access,openid,read_accounts,read_transactions,read_addresses
         provider:

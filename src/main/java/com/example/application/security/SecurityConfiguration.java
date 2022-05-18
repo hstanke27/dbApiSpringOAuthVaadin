@@ -19,7 +19,7 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
                 .antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
 
         httpSecurity.oauth2Login(oauth -> {
-                    oauth.defaultSuccessUrl("https://www.samplegae.com/start");
+                    oauth.defaultSuccessUrl("https://samplegae.com/start");
                 })
                 .logout(logout -> {
                     logout.logoutSuccessUrl("/")
