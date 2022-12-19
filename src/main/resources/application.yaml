@@ -24,7 +24,9 @@ spring:
             redirect-uri: https://samplegae.com/login/oauth2/code/github #Domain registered under: https://domains.google.com/
             #redirect-uri: http://localhost:8080/login/oauth2/code/github
           dbApi:
-            client-name: HolgersTestAppPkce
+            #client-name: HolgersTestApp # app without PKCE
+            #client-id: 8b2030b0-7d64-4d89-bee8-c59fc071e778
+            client-name: HolgersTestAppPkce # app with PKCE
             client-id: 2f5d1360-0938-4ef5-a006-118dbf38cb68
             client-authentication-method: basic
             authorization-grant-type: authorization_code

@@ -1,49 +1,30 @@
 package com.example.application.security;
 
-import com.example.application.security.oauth.CustomAuthorizationRequestResolver;
 import com.vaadin.flow.spring.security.VaadinWebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
 
-    private ClientRegistrationRepository clientRegistrationRepository;
-    private Environment env;
-
-    public SecurityConfiguration(ClientRegistrationRepository clientRegistrationRepository, Environment env) {
-        this.clientRegistrationRepository = clientRegistrationRepository;
-        this.env = env;
-    }
-
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
                 .antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
-
-/*
-        httpSecurity.oauth2Login()
-                .authorizationEndpoint()
-                .authorizationRequestResolver(new CustomAuthorizationRequestResolver(
-                        clientRegistrationRepository, "https://samplegae.com/authorize"
-                ));
-*/
 
         httpSecurity.oauth2Login(oauth -> {
                     oauth.defaultSuccessUrl("https://samplegae.com/start");
                 })
                 .logout(logout -> {
                     logout.logoutSuccessUrl("/")
-                            .permitAll()
-                            .deleteCookies("JSESSIONID");
+                        .permitAll()
+                        .deleteCookies("JSESSIONID");
                 });
 
         super.configure(httpSecurity);
