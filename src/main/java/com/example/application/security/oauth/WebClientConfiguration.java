@@ -55,7 +55,7 @@ public class WebClientConfiguration {
         ClientRegistration dbApiClientRegistration = ClientRegistration
                 .withRegistrationId("dbApi")
                 .clientId(clientId)
-                .clientSecret(clientConfig.getDbApiClientSecret())
+                //.clientSecret(clientConfig.getDbApiClientSecret())
                 .redirectUri(dbApiRedirectUri)
                 .authorizationUri(authorizationUri)
                 .tokenUri(tokenUri)

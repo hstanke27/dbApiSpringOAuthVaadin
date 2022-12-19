@@ -29,14 +29,14 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
         httpSecurity.authorizeRequests()
                 .antMatchers("/oauth2/authorization/**", "/login/oauth2/callback/**").permitAll();
 
-
+/*
         httpSecurity.oauth2Login()
                 .authorizationEndpoint()
                 .authorizationRequestResolver(new CustomAuthorizationRequestResolver(
-                        clientRegistrationRepository, "https://samplegae.com/start"
+                        clientRegistrationRepository, "https://samplegae.com/authorize"
                 ));
+*/
 
-        /*
         httpSecurity.oauth2Login(oauth -> {
                     oauth.defaultSuccessUrl("https://samplegae.com/start");
                 })
@@ -45,7 +45,6 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
                             .permitAll()
                             .deleteCookies("JSESSIONID");
                 });
-        */
 
         super.configure(httpSecurity);
     }
