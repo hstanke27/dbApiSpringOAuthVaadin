@@ -11,11 +11,19 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.vaadin.flow.spring.security.AuthenticationContext;
 
+import jakarta.annotation.security.PermitAll;
+
+@PermitAll
 public class MainLayout extends AppLayout {
 
-    public MainLayout() {
+    // AuthenticationContext is not Serializable, so it must be kept transient
+    // as documented by Vaadin when referenced from a view/layout field.
+    private final transient AuthenticationContext authenticationContext;
+
+    public MainLayout(AuthenticationContext authenticationContext) {
+        this.authenticationContext = authenticationContext;
         createHaeder();
         createDrawer();
     }
@@ -33,11 +41,16 @@ public class MainLayout extends AppLayout {
         Button logoutButton = new Button("Logout");
         logoutButton.addClassName("logoutButton");
         logoutButton.setWidth("100px");
-        logoutButton.addClickListener(event -> {
-            SecurityContextHolder.clearContext();
-            getUI().get().getSession().close();
-            getUI().get().getCurrent().getPage().setLocation("/");
-        });
+        // IMPORTANT: Manually clearing SecurityContextHolder and closing the
+        // Vaadin UI session (the previous implementation) does NOT invoke
+        // Spring Security's logout handlers, so the underlying HttpSession
+        // and its persisted SecurityContext survive - the user appears
+        // "logged out" for an instant but is immediately re-authenticated
+        // from the still-valid session on the next request. The injectable
+        // AuthenticationContext#logout() runs the full configured
+        // LogoutHandler chain (session invalidation, SecurityContext
+        // clearing, cookie deletion) and redirects per logoutSuccessUrl.
+        logoutButton.addClickListener(event -> authenticationContext.logout());
 
         addToNavbar(header, logoutButton);
     }

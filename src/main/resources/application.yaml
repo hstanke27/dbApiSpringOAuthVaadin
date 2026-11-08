@@ -1,4 +1,5 @@
 server:
+  forward-headers-strategy: framework
   port: ${PORT:8080}
   servlet:
     session:
@@ -7,8 +8,8 @@ server:
 
 logging:
   level:
-    org:
-      atmosphere: warn
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
 
 spring:
   main:
@@ -26,9 +27,12 @@ spring:
           dbApi:
             #client-name: HolgersTestApp # app without PKCE
             #client-id: 8b2030b0-7d64-4d89-bee8-c59fc071e778
-            client-name: HolgersTestAppPkce # app with PKCE
-            client-id: 2f5d1360-0938-4ef5-a006-118dbf38cb68
-            client-authentication-method: basic
+            #client-name: HolgersTestAppPkce # app with PKCE for sim-prod
+            #client-id: 2f5d1360-0938-4ef5-a006-118dbf38cb68 # for sim-prod
+            client-name: HolgerSampleGaeAppWithoutPkce # app with PKCE for sim-prd
+            client-id: 38effd0e-7e39-493a-9efa-f6b3340d82e4 # for sim-prd
+            client-secret: 523df452-66d0-43cf-8a82-1dc4bf22cf22
+            client-authentication-method: client_secret_basic
             authorization-grant-type: authorization_code
             #redirect-uri: https://dbapi-dot-simulation-sample.ey.r.appspot.com/login/oauth2/code/github
             redirect-uri: https://samplegae.com/login/oauth2/code/dbApi #Domain registered under: https://domains.google.com/
@@ -36,11 +40,16 @@ spring:
             scope: offline_access,openid,read_accounts,read_transactions,read_addresses
         provider:
           dbApi:
-            authorization-uri: https://simulator-api.db.com/gw/oidc/authorize
-            token-uri: https://simulator-api.db.com/gw/oidc/token
+            authorization-uri: https://simulator-api.db.com/gw/oidc/oauth2/authorize
+            token-uri: https://simulator-api.db.com/gw/oidc/oauth2/token
             user-info-uri: https://simulator-api.db.com/gw/oidc/userinfo
-            jwk-set-uri: https://simulator-api.db.com/gw/oidc/jwk
+            jwk-set-uri: https://simulator-api.db.com/gw/oidc/oauth2/jwks
             issuer-uri: https://simulator-api.db.com/gw/oidc/
+            #authorization-uri: https://simulator-api.db.com/gw/oidc/authorize
+            #token-uri: https://simulator-api.db.com/gw/oidc/token
+            #user-info-uri: https://simulator-api.db.com/gw/oidc/userinfo
+            #jwk-set-uri: https://simulator-api.db.com/gw/oidc/jwk
+            #issuer-uri: https://simulator-api.db.com/gw/oidc/
   mustache:
     check-template-location: false
   cloud:
@@ -58,7 +67,13 @@ vaadin:
   launch-browser: true
   # To improve the performance during development.
   # For more information https://vaadin.com/docs/flow/spring/tutorial-spring-configuration.html#special-configuration-parameters
-  .whitelisted-packages: com.vaadin,org.vaadin,dev.hilla,com.example.application
+  .whitelisted-packages: com.vaadin,org.vaadin,dev.hilla,com.example.application,com.storedobject.chart
+  .allowed-package:
+    - com.vaadin
+    - org.vaadin
+    - dev.hilla
+    - com.example.application # Your app's root package (from your stack trace)
+    - com.storedobject.chart
 
 dbApi:
   url:

@@ -18,7 +18,7 @@ import org.springframework.web.context.annotation.SessionScope;
 public class UserSession implements Serializable {
 
     @Autowired
-    OAuth2AuthorizedClientService clientService;
+    OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 
     public User getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -36,7 +36,7 @@ public class UserSession implements Serializable {
     public String getAccessToken() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
-        OAuth2AuthorizedClient client = clientService.loadAuthorizedClient(
+        OAuth2AuthorizedClient client = oAuth2AuthorizedClientService.loadAuthorizedClient(
                 oauthToken.getAuthorizedClientRegistrationId(),
                 oauthToken.getName());
 

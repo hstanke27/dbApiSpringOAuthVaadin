@@ -3,6 +3,10 @@
 This project can be used as a starting point to create your own Vaadin application with Spring Boot and
 OAuth2.
 
+Build and deploy with to gcloud app engine:
+
+mvn package appengine:deploy "-Dapp.deploy.projectId=simulation-sample" -Pproduction
+
 ## Project structure
 
 - `MainLayout.java` in `src/main/java` contains the navigation setup (i.e., the
